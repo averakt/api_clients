@@ -1,0 +1,19 @@
+#docker-compose.yml
+version: "3.0"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      DB_USER: root
+      DB_HOST: db
+      DB_PASSWORD: root
+    ports:
+      - "8001:8001"
+    restart: always
+    networks:
+      - postgres_mb-net
+networks:
+  postgres_mb-net:
+    external: true
