@@ -3,7 +3,7 @@ from app.models.database import database
 from app.routers import users
 from fastapi import FastAPI
 
-app = FastAPI(docs_url="/users/docs", redoc_url="/users/redoc")
+app = FastAPI(docs_url="/users/docs", redoc_url="/users/redoc", openapi_url="/users/openapi.json")
 
 
 @app.on_event("startup")
