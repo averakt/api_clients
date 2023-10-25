@@ -9,6 +9,7 @@ services:
       DB_USER: root
       DB_HOST: db
       DB_PASSWORD: root
+      USE_MOCK_FOR_TEST: 0
 #    ports:
 #      - "8000:8000"
     restart: always
