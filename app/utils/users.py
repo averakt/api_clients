@@ -86,6 +86,7 @@ async def update_user(user_id: int, user: user_schema.UserBase, current_user):
         .where(users_table.c.id == user_id)
         .values(
             email=user.email,
+            name=user.name,
             last_name=user.last_name,
             first_name=user.first_name,
             patronymic=user.patronymic,

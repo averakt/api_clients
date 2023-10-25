@@ -15,10 +15,20 @@ $ docker-compose --compatibility up --scale users=1 -d --build
 ## Как запустить тесты
 
 ````
-$ python -m pytest app/tests
+$ export USE_MOCK_FOR_TEST=0 && python -m pytest app/tests
 ````
 или
 
 ````
-$ docker-compose exec app python -m pytest app/tests
+$ docker-compose exec users export USE_MOCK_FOR_TEST=0 && python -m pytest app/tests
+````
+
+или тестирование с помощью Mock'ов
+
+````
+$ export USE_MOCK_FOR_TEST=1 && python -m pytest app/tests_mock && export USE_MOCK_FOR_TEST=0
+````
+
+````
+$ docker-compose exec users export USE_MOCK_FOR_TEST=1 && python -m pytest app/tests && export USE_MOCK_FOR_TEST=0
 ````
